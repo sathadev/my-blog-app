@@ -1,0 +1,13 @@
+.post-card {
+  margin-bottom: 1.5rem;
+  padding: 16px; /* หรือ 1rem ก็ได้ */
+  transition: all 0.2s ease-in-out;
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+mat-card-actions {
+  padding: 8px 16px !important;
+}

@@ -1,0 +1,19 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<div *ngIf="posts.length > 0 && !isLoading">
+  <mat-card *ngFor="let post of posts" class="post-card">
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-subtitle *ngIf="post.creator">
+      Posted by: {{ post.creator.email }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ post.content }}</p>
+    </mat-card-content>
+    <mat-card-actions align="end" *ngIf="userIsAuthenticated && post.creator && userId === post.creator._id">
+      <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<p class="info-text" *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>
